@@ -38,3 +38,47 @@ namespace DataCardio.Test
             string Ottenuto = CardioAnalisiLibrary.DataCardio.Met_1_MaxMinAllEff(Eta);
             Assert.AreEqual(Atteso, Ottenuto);
         }
+
+
+        [TestMethod]
+        public void TestMethod6()
+        {
+            string CardRip = "0";
+            string Atteso = "ERRORE!!";
+            string Ottenuto = CardioAnalisiLibrary.DataCardio.Met_2_IntValFreCardRip(CardRip);
+            Assert.AreEqual(Atteso, Ottenuto);
+        }
+        [TestMethod]
+        public void TestMethod7()
+        {
+            string CardRip = "err";
+            string Atteso = "ERRORE!!";
+            string Ottenuto = CardioAnalisiLibrary.DataCardio.Met_2_IntValFreCardRip(CardRip);
+            Assert.AreEqual(Atteso, Ottenuto);
+        }
+        [TestMethod]
+        public void TestMethod8()
+        {
+            string CardRip = "35";
+            string Atteso = "Hai un battito Bradicardico";
+            string Ottenuto = CardioAnalisiLibrary.DataCardio.Met_2_IntValFreCardRip(CardRip);
+            Assert.AreEqual(Atteso, Ottenuto);
+        }
+        [TestMethod]
+        public void TestMethod9()
+        {
+            string CardRip = "75";
+            string Atteso = "Hai un battito Normale";
+            string Ottenuto = CardioAnalisiLibrary.DataCardio.Met_2_IntValFreCardRip(CardRip);
+            Assert.AreEqual(Atteso, Ottenuto);
+        }
+        [TestMethod]
+        public void TestMethod10()
+        {
+            string CardRip = "115";
+            string Atteso = "Hai un battito Tachicardico";
+            string Ottenuto = CardioAnalisiLibrary.DataCardio.Met_2_IntValFreCardRip(CardRip);
+            Assert.AreEqual(Atteso, Ottenuto);
+        }
+    }
+}
