@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,22 +8,30 @@ namespace CardioAnalisiLibrary
 {
     public class DataCardio
     {
-        public static string Met_ContInsDat(string Eta)
+        public static string Met_1_MaxMinAllEff (string Eta)
         {
-            string msg = "";
+            string Risposta = "";
+            double MaxEff = 0;
+            double Max = 0;
+            double Min = 0;
             try
             {
                 int eta = Convert.ToInt32(Eta);
                 if(eta<=0||eta>=150)
                 {
-                    msg = "ERRORE!!";
+                    Risposta = "ERRORE!!";
+                }
+                else
+                {
+                    MaxEff = 220 - eta;
+                    Min = MaxEff * 0.7;
+                    Max = MaxEff * 0.9;
+                    Risposta = "Il valore massimo è " + Convert.ToString(Max) + " Il valore minimo è " + Convert.ToString(Min);
                 }
             }
             catch
             {
-                msg = "ERRORE!!";
+                Risposta = "ERRORE!!";
             }
-            return msg;
+            return Risposta;
         }
-    }
-}
