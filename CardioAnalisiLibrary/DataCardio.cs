@@ -35,3 +35,36 @@ namespace CardioAnalisiLibrary
             }
             return Risposta;
         }
+        public static string Met_2_IntValFreCardRip(string CardRip)
+        {
+            string Risposta = "";
+            int Battito = 0;
+            try
+            {
+                Battito = Convert.ToInt32(CardRip);
+                if (Battito <= 0 )
+                {
+                    Risposta = "ERRORE!!";
+                }
+                else if (Battito<60)
+                {
+                    Risposta = "Hai un battito Bradicardico";
+                }
+                else if(Battito>=60&&Battito<100)
+                {
+                    Risposta = "Hai un battito Normale";
+                }
+                else
+                {
+                    Risposta = "Hai un battito Tachicardico";
+                }
+
+            }
+            catch
+            {
+                Risposta = "ERRORE!!";
+            }
+            return Risposta;
+        }
+    }
+}
